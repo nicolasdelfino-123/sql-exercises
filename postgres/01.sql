@@ -15,4 +15,11 @@ Ordenar por precio de mayor a menor
 
 Mostrar solo los primeros 7 */
 
-SELECT 
+SELECT nombre, categoria, precio
+FROM productos
+WHERE LOWER(nombre) ~ '^[^aeiou]'
+AND nombre ILIKE '%ma%'
+/* AND nombre ~* hacelo con eso y explicalo porque no lo aprendi aun*/
+AND categoria !~ '[aeiouAEIOU]$'
+ORDER BY precio DESC
+LIMIT 7;
